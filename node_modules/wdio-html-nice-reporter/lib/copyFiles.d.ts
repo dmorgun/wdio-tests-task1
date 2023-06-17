@@ -1,1 +1,0 @@
-export default function copyFiles(srcDir: string, destDir: string): Promise<any>;
