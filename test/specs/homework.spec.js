@@ -46,7 +46,8 @@ describe('Add product to the cart', () => {
         await $('#remove-sauce-labs-backpack').click();
     });
 
-    it('Verify no products are available in the Shopping Cart', async () => {
+    it.only('Verify no products are available in the Shopping Cart', async () => {
+        console.log($$('.cart_item'));
         await expect($$('.cart_item')) === [];
     });
 
