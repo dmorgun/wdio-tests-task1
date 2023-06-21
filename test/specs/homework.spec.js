@@ -3,16 +3,20 @@ describe('Perform login', () => {
         await browser.url(`https://www.saucedemo.com/`)
         await $('#user-name').setValue('standard_user')
         await $('#password').setValue('secret_sauce')
-        await $('#login-button').click()
+        await $('#login-button').click();
+        //Products (1) title is displayed
+        await expect($('.title')).toBeExisting();
+        //Products (1) title is displayed
+        await expect($('.shopping_cart_link')).toBeExisting();
     });
 
-    it('Products (1) title is displayed', async () => {
-        await expect($('.title')).toBeExisting()
-    });
+    // it('', async () => {
+       
+    // });
 
-    it('Shopping Cart icon (2) is displayed', async () => {
-        await expect($('.shopping_cart_link')).toBeExisting()
-    });
+    // it('Shopping Cart icon (2) is displayed', async () => {
+        
+    // });
 
     it('More than 1 product (3) is displayed', async () => {
         await expect($$('.inventory_item')).toBeExisting()
@@ -47,8 +51,10 @@ describe('Add product to the cart', () => {
     });
 
     it('Verify no products are available in the Shopping Cart', async () => {
-        console.log($$('.cart_item'));
-        await expect($$('.cart_item')) === [];
+        console.log('LOOKATME');
+        console.log("TESTCOMMENT", await $$('.cart_item'));
+        //expect(await $$('.cart_item') === []).toBeTruthy();
+        await expect($$('.cart_item')).not.toBeDisplayed();
     });
 
 })
